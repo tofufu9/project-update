@@ -1,0 +1,60 @@
+﻿@model IEnumerable<LoginandR.Models.Product>
+@{ ViewBag.Title = "Product";
+                Layout = "~/Views/Shared/_LayoutPage4.cshtml"; }
+
+
+<div style="padding-top:300px" class="container pb-5 mb-sm-1">
+    <div class="row">
+        <!-- Categories grid-->
+        @foreach (var item in Model)
+        {<!-- Category-->
+                            <div class="col-md-4 col-sm-6">
+                                <div class="card border-0 mb-grid-gutter">
+                                    <a class="card-img-tiles" href="@Url.Action("Details", new { id = @item.proID})">
+                                        <div class="main-img"><img src="~/Asset/images/@item.proImg" style="width:365px; height:300px;" alt="image"></div>
+                                    </a>
+                                    <div class="card-body border mt-n1 py-4 text-center">
+                                        <a href="@Url.Action("Details", new { id = @item.proID})">
+                                            <h2 class="h5 mb-1">@item.proName</h2>
+                                        </a>
+                                        <span class="d-block mb-3 font-size-xs text-muted">Price: <span class="font-weight-semibold">@item.proPrice VNĐ</span></span>
+                                        <span class="d-block mb-3 font-size-xs text-muted">Discount: <span class="font-weight-semibold">@item.discount %</span></span>
+                                        <a class="btn btn-pill btn-outline-primary btn-sm" href="#">Add to Cart</a>
+                                    </div>
+
+                                </div>
+
+                            </div>}
+
+    </div>
+    <br />
+    <div class="row text-center" style="border:1px">
+        <ul style="padding-left:50%;" class="pagination">
+            @{ int numberPage = ViewBag.numberPage;
+                int pageCurrent = ViewBag.pageCurrent;
+                if (pageCurrent > 1)
+                {
+                    int prePage = pageCurrent - 1;
+    <li style="border:1px;" class="active"><a href="?page=@prePage">Pre</a></li>
+ }
+int i;
+for (i = 1; i <= numberPage; i++)
+{
+    if (i == pageCurrent)
+    {
+<li style="border:1px;" class="active"><a href="?page=@i">@i</a></li>
+ }
+else
+{
+<li style="border:1px;"><a href="?page=@i">@i</a></li>
+ }
+}
+if (pageCurrent > 1 && pageCurrent < numberPage)
+{
+int nextPage = pageCurrent + 1;
+<li style="border:1px;" class="active"><a href="?page=@nextPage">Next</a></li> } }
+        </ul>
+    </div>
+
+</div>
+

@@ -1,0 +1,58 @@
+﻿@model LoginandR.Models.Product
+@{ ViewBag.Title = "Details";
+                Layout = "~/Views/Shared/_LayoutPage5.cshtml"; }
+
+<div class="container mt-5 mb-5">
+    <div class="card">
+        <div class="row g-0">
+            <div class="col-md-6 border-end">
+                <div class="d-flex flex-column justify-content-center">
+                    <div class="thumbnail_images">
+                        <div class="pro-img-details">
+                            <img src="~/Asset/images/@Model.proImg" style="width:60%; height:60%" alt="main_product_image">
+                        </div>
+                        <!-- <div class="thumbnail_images">
+                <ul id="thumbnail">
+                    <li><img onclick="changeImage(this)" src="https://i.imgur.com/TAzli1U.jpg" width="70"></li>
+                    <li><img onclick="changeImage(this)" src="https://i.imgur.com/w6kEctd.jpg" width="70"></li>
+                    <li><img onclick="changeImage(this)" src="https://i.imgur.com/L7hFD8X.jpg" width="70"></li>
+                    <li><img onclick="changeImage(this)" src="https://i.imgur.com/6ZufmNS.jpg" width="70"></li>
+                </ul>
+            </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 right-side">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="pro-d-title">
+                            <a class="">
+                                @Model.proName
+                            </a>
+                        </h3>
+                        <span class="heart"><i class='bx bx-heart'></i></span>
+                    </div>
+                    <div class="mt-2 pr-3 content">
+                        <p>
+                            @Model.proDescription
+                        </p>
+                    </div>
+                    <div class="m-bot15">
+                        <h3><strong>Price: </strong></h3>
+                        <h3><span class="amount-old">@Model.proPrice VNĐ</span></h3>
+</div>
+                    <div class="product_meta">
+                        <div class="m-bot15"><strong>Supplier:</strong> <span class="amount-old">@Model.supName</span></div>
+                    </div>
+                    <div class="m-bot15"><strong>Type: </strong> <span class="amount-old">@Model.tName</span></div>
+                    <div class="m-bot15"><strong>Discount: </strong> <span class="amount-old">@Model.discount %</span></div>
+                    <div class="form-group">
+                        <label>Quantity: </label>
+                        <input type="number" placeholder="1" class="form-control quantity">
+                    </div>
+                    <div class="buttons d-flex flex-row mt-5 gap-3"> <button class="btn btn-outline-dark">Buy Now</button> <button class="btn btn-dark">Add to Basket</button> </div>
+                </div>
+                </div>
+    </div>
+</div>
+</div>

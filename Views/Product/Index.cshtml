@@ -1,0 +1,98 @@
+﻿@model IEnumerable<LoginandR.Models.Product>
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage3.cshtml"; }
+
+<h1 class="text-center pt-5">Manage products</h1>
+
+<p>
+    @Html.ActionLink("Add New Product", "Create", null, new { @class = "btn btn-info" })
+</p>
+
+<form asp-controller="Products" asp-action="Index" method="get" class="my-5">
+    <div class="form-row col-12">
+        <div class="form-group col-md-4">
+            <label for="category">Category</label>
+            <select id="category" name="categoryId" asp-items="ViewBag.Category" class="form-control">
+                <option value="">All</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="product-status">Status</label>
+            <select name="status" id="product-status" class="form-control">
+                <option value="">All</option>
+                <option value="true">Active</option>
+                <option value="false">Inactive</option>
+            </select>
+        </div>
+        @*<input type="submit" value="Filter" class="btn btn-primary col-md-4" />*@
+    </div>
+    <button type="submit" class="btn btn-primary col-md-2 ml-3">Filter</button>
+</form>
+
+<table class="table table-striped table-bordered mydatatable">
+    <thead>
+        <tr>
+            <th>
+                Product ID
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.supName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.proName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.proPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.proImg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.proDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.discount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.proID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.supName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.proName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.proPrice)
+            </td>
+            <td>
+                <img src="~/Asset/images/@item.proImg" style="width:100px; height:100px;" alt="image">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.proDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.discount)
+            </td>
+            <td>
+                @Html.ActionLink("Update", "Update", new { id = item.proID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.proID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.proID })
+            </td>
+        </tr>}
+    </tbody>
+</table>

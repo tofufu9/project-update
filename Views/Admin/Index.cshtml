@@ -1,0 +1,88 @@
+﻿@model IEnumerable<LoginandR.Models.User>
+
+@{
+    ViewBag.Title = "Account Management";
+    Layout = "~/Views/Shared/_LayoutPage3.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.uUsername)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.uPwd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.uFirstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.uLastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.uPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.uAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.uBirthday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.uEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.uGender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.uCreditCard)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.uUsername)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.uPwd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.uFirstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.uLastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.uPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.uAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.uBirthday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.uEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.uGender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.uCreditCard)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.uID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.uID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.uID })
+        </td>
+    </tr>
+}
+
+</table>

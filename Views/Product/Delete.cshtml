@@ -1,0 +1,90 @@
+﻿@model LoginandR.Models.Product
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPage3.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.proID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.supID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.supID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proImg)
+        </dt>
+
+        <dd>
+            <img src="~/Asset/images/@Model.proImg"style="width:200px; height:200px;" alt="image">
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.discount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.discount)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+@Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')" />
+    <br />
+                    @Html.ActionLink("Back to List", "Index")
+                </div>}
+</div>
