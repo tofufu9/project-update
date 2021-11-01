@@ -42,17 +42,17 @@ for (i = 1; i <= numberPage; i++)
 {
     if (i == pageCurrent)
     {
-<li style="border:1px;" class="active"><a href="?page=@i">@i</a></li>
+    <li style="border:1px;" class="active"><a href="?page=@i">@i</a></li>
  }
 else
 {
-<li style="border:1px;"><a href="?page=@i">@i</a></li>
+    <li style="border:1px;"><a href="?page=@i">@i</a></li>
  }
 }
 if (pageCurrent > 1 && pageCurrent < numberPage)
 {
 int nextPage = pageCurrent + 1;
-<li style="border:1px;" class="active"><a href="?page=@nextPage">Next</a></li> } }
+    <li style="border:1px;" class="active"><a href="?page=@nextPage">Next</a></li> } }
         </ul>
     </div>
 

@@ -37,7 +37,7 @@ namespace LoginandR.Controllers
             {
                 page = 1; // set page default 1
             }
-            int limit = 2; //display show 3 product 
+            int limit = 6; //display show 3 product 
             int start = (int)(page - 1) * limit;
             int totalProduct = data.Count();
             ViewBag.totalProduct = totalProduct;
@@ -45,6 +45,10 @@ namespace LoginandR.Controllers
             float numberPage = (float)totalProduct / limit;
             ViewBag.numberPage = (int)Math.Ceiling(numberPage);
             var dataProduct = data.OrderByDescending(s => s.proID).Skip(start).Take(limit);
+            if( page > numberPage)
+            {
+                return HttpNotFound();
+            }
             return View(dataProduct.ToList());
         }
 
